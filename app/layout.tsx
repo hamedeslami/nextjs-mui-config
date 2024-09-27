@@ -1,7 +1,7 @@
 import React from "react";
 import localFont from 'next/font/local';
 import type {Metadata} from "next";
-import {AppRouterCacheProvider} from '@mui/material-nextjs/v13-appRouter';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import ThemeRegistry from "../theme";
 import axios from "axios";
 import {setupInterceptorsTo} from "@/config/configAxios";
@@ -16,18 +16,18 @@ const ReduxProvider = dynamic(() => import("@/store/redux-provider"), {
 const IRANSansX = localFont({
     src: [
         {
-            path: '../public/fonts/IRANSansXFaNum-Bold.woff',
-            weight: 'normal',
+            path: '../public/fonts/IRANSansX-Regular.woff',
+            weight: '400',
             style: 'normal',
         },
         {
-            path: '../public/fonts/IRANSansXFaNum-Regular.woff',
-            weight: 'bold',
+            path: '../public/fonts/IRANSansX-Bold.woff',
+            weight: '700',
             style: 'normal',
         },
     ],
+    variable: '--font-IRANSansX',
 });
-
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -37,13 +37,13 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
     return (
         <html lang="fa-IR" dir="rtl">
-        <body className={`${IRANSansX.className} font-sans`}>
-        <ReduxProvider>
-            <AppRouterCacheProvider options={{key: 'css'}}>
-                <ThemeRegistry>{children}</ThemeRegistry>
-            </AppRouterCacheProvider>
-        </ReduxProvider>
-        </body>
+            <body className={IRANSansX.variable}>
+            <ReduxProvider>
+                <AppRouterCacheProvider options={{key: 'css'}}>
+                    <ThemeRegistry>{children}</ThemeRegistry>
+                </AppRouterCacheProvider>
+            </ReduxProvider>
+            </body>
         </html>
     );
 }

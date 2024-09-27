@@ -10,6 +10,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { useServerInsertedHTML } from 'next/navigation';
 import theme from "./theme";
 import {ToastContainer, Zoom} from "react-toastify";
+import 'react-toastify/ReactToastify.min.css';
 
 export default function ThemeRegistry(props: any) {
     const { children } = props;

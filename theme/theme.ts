@@ -18,7 +18,7 @@ const theme = createTheme({
 
     },
     typography: {
-        fontFamily: 'IRANSansX',
+        fontFamily: 'var(--font-IRANSansX)',
         subtitle1: {
             fontSize: '.75rem',
             fontWeight: '700',
